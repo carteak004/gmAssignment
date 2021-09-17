@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {COMMITSURL} from './Constants';
 
-const getCommits = async () => {
+export async function getCommits(callBack, errorCallBack) {
   var output = [];
   var config = {
     method: 'get',
@@ -11,7 +11,7 @@ const getCommits = async () => {
   };
 
   await axios(config)
-    .then(function (response) {
+    .then(response => {
       response.data.forEach(commit => {
         output.push({
           hash: commit.sha,
@@ -19,15 +19,10 @@ const getCommits = async () => {
           name: commit.commit.author.name,
         });
       });
-      //   console.log(output);
-      return output;
+      callBack(output);
     })
-    .catch(function (error) {
+    .catch(error => {
+      errorCallBack();
       console.log(error);
-      return output;
     });
-
-  return output;
-};
-
-export default getCommits;
+}
