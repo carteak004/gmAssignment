@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {COMMITSURL} from './Constants';
 
-export default async function getCommits() {
+const getCommits = async () => {
   var output = [];
   var config = {
     method: 'get',
@@ -19,10 +19,15 @@ export default async function getCommits() {
           name: commit.commit.author.name,
         });
       });
+      //   console.log(output);
       return output;
     })
     .catch(function (error) {
       console.log(error);
       return output;
     });
-}
+
+  return output;
+};
+
+export default getCommits;
