@@ -16,6 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
+  FlatList,
 } from 'react-native';
 
 import {
@@ -59,10 +60,15 @@ const App: () => Node = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const commitHistory = [
+    {name: 'test1', hash: 'hash1', message: 'message1'},
+    {name: 'test2', hash: 'hash2', message: 'message2'},
+  ];
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
+      {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
@@ -85,7 +91,17 @@ const App: () => Node = () => {
           </Section>
           <LearnMoreLinks />
         </View>
-      </ScrollView>
+      </ScrollView> */}
+      <FlatList
+        data={commitHistory}
+        contentContainerStyle={{flexGrow: 1}}
+        renderItem={({item}) => (
+          <View style={styles.flatListView}>
+            <Text style={styles.itemNameStyle}>{item.hash}</Text>
+          </View>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </SafeAreaView>
   );
 };
@@ -106,6 +122,22 @@ const styles = StyleSheet.create({
   },
   highlight: {
     fontWeight: '700',
+  },
+
+  flatListView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: 'white',
+    paddingTop: 10,
+    paddingBottom: 10,
+  },
+
+  itemNameStyle: {
+    // fontWeight: 'bold',
+    fontSize: 22,
+    marginBottom: 10,
   },
 });
 
