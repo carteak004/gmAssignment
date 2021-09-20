@@ -14,6 +14,8 @@ All the created files are placed in src folder
     * __Constants__ - has the github URL used
     * __GetCommits__ - calls the Github API to retreive the 30 most recent commits from facebook/react-native repository
   * __components__
+    * __tests__
+       *  __CommitComponent.test__ - snapshot test for the component
     * __CommitComponent__ - the render component that displays the name, hash and message in the list view
   * __containers__
     * __CommitContainer__ - holds the code to call the API and load the data into a listview. I used a Flatlist for this assignment
@@ -22,5 +24,3 @@ All the created files are placed in src folder
 
 
 App.js is the entry point of the app that loads the list view in a safe view that deals with the edges and Status bar in iOS
----
-No specific test cases are written in this assignment for now
