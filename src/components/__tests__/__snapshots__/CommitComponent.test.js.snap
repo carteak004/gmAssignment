@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "padding": 10,
+      },
+      Object {
+        "backgroundColor": "#FFF",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 24,
+          "fontWeight": "600",
+        },
+        Object {
+          "color": "#000",
+        },
+      ]
+    }
+  >
+    Kartheek
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 18,
+          "fontWeight": "400",
+          "marginTop": 8,
+        },
+        Object {
+          "color": "#444",
+        },
+      ]
+    }
+  >
+    1
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "fontSize": 16,
+          "fontWeight": "700",
+          "marginTop": 8,
+        },
+        Object {
+          "color": "#444",
+        },
+      ]
+    }
+  >
+    created test
+  </Text>
+</View>
+`;
